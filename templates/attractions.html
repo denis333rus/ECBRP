@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Достопримечательности Екатеринбурга</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="nav-logo-img">
+                <h1 class="nav-logo">Екатеринбург</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/attractions" class="nav-link active">Достопримечательности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/news" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/officials" class="nav-link">Официальные ссылки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Достопримечательности Екатеринбурга</h1>
+                <p>Откройте для себя самые интересные места столицы Урала</p>
+            </div>
+        </section>
+
+        <section class="attractions">
+            <div class="container">
+                <div class="attractions-grid">
+                    <div class="attraction-card">
+                        <div class="attraction-image">
+                            <div class="image-placeholder">🛥️</div>
+                        </div>
+                        <div class="attraction-content">
+                            <h3>Яхта</h3>
+                            <p>Яхта, на которой мы плывем по Волге.</p>
+                            <div class="attraction-info">
+                                <span class="location">📍 на Волге</span>
+                                <span class="time">🕒 Круглосуточно</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="attraction-card">
+                        <div class="attraction-image">
+                            <div class="image-placeholder">🏡</div>
+                        </div>
+                        <div class="attraction-content">
+                            <h3>Элитный поселок</h3>
+                            <p>Элитный коттеджный поселок</p>
+                            <div class="attraction-info">
+                                <span class="location">📍 4 км шоссе от города</span>
+                                <span class="time">🕒 Круглосуточно</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="attraction-card">
+                        <div class="attraction-image">
+                            <div class="image-placeholder">🏢</div>
+                        </div>
+                        <div class="attraction-content">
+                            <h3>Здание правительства</h3>
+                            <p>Здание правительства РФ и правительства Свердловской области</p>
+                            <div class="attraction-info">
+                                <span class="location">📍 Центр города</span>
+                                <span class="time">🕒 Круглосуточно</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attraction-card">
+                        <div class="attraction-image">
+                            <div class="image-placeholder">🏛️</div>
+                        </div>
+                        <div class="attraction-content">
+                            <h3>Здание Госдумы</h3>
+                            <p>Здание Госдумы РФ</p>
+                            <div class="attraction-info">
+                                <span class="location">📍 За зданием МВД</span>
+                                <span class="time">🕒 Круглосуточно</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips">
+            <div class="container">
+                <h2>Советы для туристов</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>🚇 Транспорт</h3>
+                        <p>Метро Екатеринбурга</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🍽️ Еда</h3>
+                        <p>Попробуйте уральские пельмени, квас и местные сорта пива. в кафе кабыла и кафе на яхте</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <h3>📱 Полезные приложения</h3>
+                        <p>Скачайте "2ГИС" для навигации и "Яндекс.Такси" для поездок по городу.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="footer-logo">
+                <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Добавить новость{% endblock %}
+
+{% block content %}
+<div class="admin-form-container">
+    <div class="form-header">
+        <h2>➕ Добавить новую новость</h2>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+            ← Назад к списку
+        </a>
+    </div>
+
+    <form method="POST" class="admin-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Заголовок новости *</label>
+            <input type="text" id="title" name="title" required 
+                   placeholder="Введите заголовок новости" maxlength="200">
+            <small>Максимум 200 символов</small>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Содержание новости *</label>
+            <textarea id="content" name="content" required rows="8" 
+                      placeholder="Введите содержание новости"></textarea>
+            <small>Опишите подробно, что произошло</small>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="author">Автор *</label>
+                <input type="text" id="author" name="author" required 
+                       placeholder="Имя автора" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Категория</label>
+                <select id="category" name="category">
+                    <option value="Общие">Общие</option>
+                    <option value="Культура">Культура</option>
+                    <option value="Развитие">Развитие</option>
+                    <option value="Образование">Образование</option>
+                    <option value="Туризм">Туризм</option>
+                    <option value="Экология">Экология</option>
+                    <option value="Спорт">Спорт</option>
+                    <option value="Экономика">Экономика</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="attachment">Прикрепить файл (опционально)</label>
+            <input type="file" id="attachment" name="attachment" 
+                   accept=".txt,.pdf,.png,.jpg,.jpeg,.gif,.doc,.docx">
+            <small>Поддерживаемые форматы: TXT, PDF, PNG, JPG, GIF, DOC, DOCX (макс. 16MB)</small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                💾 Сохранить новость
+            </button>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                ❌ Отмена
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

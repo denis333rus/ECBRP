@@ -1,0 +1,91 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Редактировать новость{% endblock %}
+
+{% block content %}
+<div class="admin-form-container">
+    <div class="form-header">
+        <h2>✏️ Редактировать новость #{{ news[0] }}</h2>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+            ← Назад к списку
+        </a>
+    </div>
+
+    <form method="POST" class="admin-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Заголовок новости *</label>
+            <input type="text" id="title" name="title" required 
+                   value="{{ news[1] }}" maxlength="200">
+            <small>Максимум 200 символов</small>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Содержание новости *</label>
+            <textarea id="content" name="content" required rows="8">{{ news[2] }}</textarea>
+            <small>Опишите подробно, что произошло</small>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="author">Автор *</label>
+                <input type="text" id="author" name="author" required 
+                       value="{{ news[3] }}" maxlength="100">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Категория</label>
+                <select id="category" name="category">
+                    <option value="Общие" {% if news[4] == 'Общие' %}selected{% endif %}>Общие</option>
+                    <option value="Культура" {% if news[4] == 'Культура' %}selected{% endif %}>Культура</option>
+                    <option value="Развитие" {% if news[4] == 'Развитие' %}selected{% endif %}>Развитие</option>
+                    <option value="Образование" {% if news[4] == 'Образование' %}selected{% endif %}>Образование</option>
+                    <option value="Туризм" {% if news[4] == 'Туризм' %}selected{% endif %}>Туризм</option>
+                    <option value="Экология" {% if news[4] == 'Экология' %}selected{% endif %}>Экология</option>
+                    <option value="Спорт" {% if news[4] == 'Спорт' %}selected{% endif %}>Спорт</option>
+                    <option value="Экономика" {% if news[4] == 'Экономика' %}selected{% endif %}>Экономика</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="attachment">Прикрепить файл (опционально)</label>
+            {% if news|length > 7 and news[7] %}
+            <div class="current-file">
+                <p><strong>Текущий файл:</strong> 
+                    <a href="{{ url_for('download_file', filename=news[7]) }}" target="_blank">
+                        {{ news[8] or news[7] }}
+                    </a>
+                </p>
+                {% if news[7].lower().endswith(('.jpg', '.jpeg', '.png', '.gif')) %}
+                <div class="file-preview">
+                    <img src="{{ url_for('static', filename='uploads/' + news[7]) }}" 
+                         alt="Превью изображения" class="preview-image">
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            <input type="file" id="attachment" name="attachment" 
+                   accept=".txt,.pdf,.png,.jpg,.jpeg,.gif,.doc,.docx">
+            <small>Поддерживаемые форматы: TXT, PDF, PNG, JPG, GIF, DOC, DOCX (макс. 16MB)</small>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="is_published" {% if news[6] %}checked{% endif %}>
+                <span class="checkmark"></span>
+                Опубликовать новость
+            </label>
+            <small>Снимите галочку, чтобы оставить как черновик</small>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                💾 Сохранить изменения
+            </button>
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">
+                ❌ Отмена
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

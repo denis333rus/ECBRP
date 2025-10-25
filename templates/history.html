@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История Екатеринбурга</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="nav-logo-img">
+                <h1 class="nav-logo">Екатеринбург</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/attractions" class="nav-link">Достопримечательности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link active">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/news" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/officials" class="nav-link">Официальные ссылки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>История Екатеринбурга</h1>
+                <p>От основания до наших дней - 300 лет истории</p>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <div class="container">
+                <h2>Хронология событий</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1723</div>
+                        <div class="timeline-content">
+                            <h3>Основание города</h3>
+                            <p>Город основан Василием Татищевым и Вильгельмом де Геннином по указу Петра I. Назван в честь императрицы Екатерины I.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1725</div>
+                        <div class="timeline-content">
+                            <h3>Первая железоделательная фабрика</h3>
+                            <p>Построена первая в России железоделательная фабрика, которая стала основой промышленного развития города.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1781</div>
+                        <div class="timeline-content">
+                            <h3>Статус уездного города</h3>
+                            <p>Екатеринбург получил статус уездного города Пермской губернии и стал административным центром.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1878</div>
+                        <div class="timeline-content">
+                            <h3>Открытие железной дороги</h3>
+                            <p>Через город прошла железная дорога, что способствовало экономическому росту и развитию торговли.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1918</div>
+                        <div class="timeline-content">
+                            <h3>Расстрел царской семьи</h3>
+                            <p>В доме Ипатьева была расстреляна семья последнего российского императора Николая II.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1924</div>
+                        <div class="timeline-content">
+                            <h3>Переименование в Свердловск</h3>
+                            <p>Город переименован в Свердловск в честь революционера Якова Свердлова.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1941-1945</div>
+                        <div class="timeline-content">
+                            <h3>Великая Отечественная война</h3>
+                            <p>Свердловск стал важным промышленным центром, эвакуированы многие заводы из западных регионов.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991</div>
+                        <div class="timeline-content">
+                            <h3>Возвращение исторического названия</h3>
+                            <p>Городу возвращено историческое название Екатеринбург.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h3>Чемпионат мира по футболу</h3>
+                            <p>Екатеринбург принял матчи чемпионата мира по футболу FIFA 2018.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="historical-figures">
+            <div class="container">
+                <h2>Исторические личности</h2>
+                <div class="figures-grid">
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="image-placeholder">👨‍💼</div>
+                        </div>
+                        <div class="figure-content">
+                            <h3>Якутин</h3>
+                            <p class="figure-role">Создатель сервера Екатеринбург рп</p>
+                        </div>
+                    </div>
+
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="image-placeholder">👨‍🔧</div>
+                        </div>
+                        <div class="figure-content">
+                            <h3>Распутин</h3>
+                            <p class="figure-role">Губернатор Екатеринбурга</p>
+                        </div>
+                    </div>
+
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="image-placeholder">👑</div>
+                        </div>
+                        <div class="figure-content">
+                            <h3>Мятеж ASS</h3>
+                            <p class="figure-role">Призедент РФ</p>
+                            <p>долбаеб который был дтлбаебом</p>
+                        </div>
+                    </div>
+
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="image-placeholder">👨‍🎓</div>
+                        </div>
+                        <div class="figure-content">
+                            <h3>Ангелина</h3>
+                            <p class="figure-role">Председатель ГД РФ</p>
+                            <p>депутатка крутая</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="heritage">
+            <div class="container">
+                <h2>Культурное наследие</h2>
+                <div class="heritage-content">
+                    <div class="heritage-text">
+                        <h3>Архитектурные памятники</h3>
+                        <p>Екатеринбург сохранил множество архитектурных памятников разных эпох: от классицизма XVIII века до конструктивизма XX века. Особенно ценны здания в стиле модерн и советского конструктивизма.</p>
+                        
+                        <h3>Промышленное наследие</h3>
+                        <p>Город является колыбелью российской металлургии. Здесь работали первые железоделательные заводы, которые обеспечивали металлом всю Российскую империю.</p>
+                        
+                        <h3>Литературная традиция</h3>
+                        <p>С городом связаны имена многих писателей и поэтов: Павел Бажов, Дмитрий Мамин-Сибиряк, Владислав Крапивин и другие.</p>
+                    </div>
+                    <div class="heritage-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">300</span>
+                            <span class="stat-label">лет истории</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">600+</span>
+                            <span class="stat-label">памятников</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">музеев</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">театров</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

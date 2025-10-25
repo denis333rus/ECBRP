@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Екатеринбург - Столица Урала</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="nav-logo-img">
+                <h1 class="nav-logo">Екатеринбург</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/attractions" class="nav-link">Достопримечательности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/news" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/officials" class="nav-link">Официальные ссылки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Добро пожаловать в Екатеринбург</h1>
+                <p class="hero-subtitle">Столица Урала и один из крупнейших городов России</p>
+                <a href="/attractions" class="cta-button">Исследовать город</a>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>О городе</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Население</h3>
+                        <p>Более 1.5 миллиона жителей</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Основан</h3>
+                        <p>1723 год</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Площадь</h3>
+                        <p>468 км²</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Часовой пояс</h3>
+                        <p>UTC+5 (Екатеринбургское время)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Почему стоит посетить Екатеринбург?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏛️</div>
+                        <h3>Богатая история</h3>
+                        <p>Город с почти 300-летней историей, основанный Петром I</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏔️</div>
+                        <h3>Уральские горы</h3>
+                        <p>Расположен на границе Европы и Азии</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎭</div>
+                        <h3>Культурная жизнь</h3>
+                        <p>Театры, музеи, фестивали и современное искусство</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏭</div>
+                        <h3>Промышленный центр</h3>
+                        <p>Крупнейший промышленный и деловой центр Урала</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weather">
+            <div class="container">
+                <h2>Погода в Екатеринбурге</h2>
+                <div class="weather-info">
+                    <p>Екатеринбург расположен в зоне умеренно-континентального климата. Зимы холодные и снежные, лето теплое и короткое.</p>
+                    <div class="weather-stats">
+                        <div class="weather-stat">
+                            <span class="temp">-15°C</span>
+                            <span class="season">Зима</span>
+                        </div>
+                        <div class="weather-stat">
+                            <span class="temp">+20°C</span>
+                            <span class="season">Лето</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="footer-logo">
+                <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

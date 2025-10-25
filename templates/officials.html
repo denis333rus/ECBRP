@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Официальные ссылки - Екатеринбург</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="nav-logo-img">
+                <h1 class="nav-logo">Екатеринбург</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/attractions" class="nav-link">Достопримечательности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/news" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/officials" class="nav-link active">Официальные ссылки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Официальные ссылки</h1>
+                <p>Полезные ссылки на государственные органы и службы</p>
+            </div>
+        </section>
+
+        <section class="officials-content">
+            <div class="container">
+                <div class="officials-grid">
+                    <!-- Прокуратура -->
+                    <div class="official-card">
+                        <div class="official-icon">
+                            <div class="icon-placeholder">⚖️</div>
+                        </div>
+                        <div class="official-content">
+                            <h3>Прокуратура Свердловской области</h3>
+                            <p>Официальный сайт прокуратуры</p>
+                            <div class="official-links">
+                                <a href="https://prosecutor.up.railway.app/" target="_blank" class="official-link">
+                                    🌐 Официальный сайт
+                                </a>
+                            </div>
+                            <div class="official-info">
+                                <span class="info-item">📍здание прокуратуры</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Следственный комитет -->
+                    <div class="official-card">
+                        <div class="official-icon">
+                            <div class="icon-placeholder">🕵️</div>
+                        </div>
+                        <div class="official-content">
+                            <h3>Следственный комитет РФ</h3>
+                            <p>Следственное управление</p>
+                            <div class="official-links">
+                                <a href="https://skrfrp1.up.railway.app/" target="_blank" class="official-link">
+                                    🌐 Официальный сайт
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="footer-logo">
+                <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

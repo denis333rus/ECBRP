@@ -1,0 +1,36 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Вход в админ панель{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <div class="login-header">
+            <h2>🔐 Вход в админ панель</h2>
+            <p>Введите учетные данные для доступа</p>
+        </div>
+        
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Введите имя пользователя">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Введите пароль">
+            </div>
+            
+            <button type="submit" class="login-btn">Войти</button>
+        </form>
+        
+        <div class="login-info">
+            <h3>Тестовые данные:</h3>
+            <p><strong>Логин:</strong> admin</p>
+            <p><strong>Пароль:</strong> admin123</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

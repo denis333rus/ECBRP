@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Админ панель{% endblock %} - Екатеринбург</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <div class="admin-nav">
+            <div class="admin-logo">
+                <h1>🔧 Админ панель</h1>
+            </div>
+            <nav class="admin-nav-menu">
+                <a href="{{ url_for('admin_dashboard') }}" class="admin-nav-link">Главная</a>
+                <a href="{{ url_for('admin_add_news') }}" class="admin-nav-link">Добавить новость</a>
+                <a href="{{ url_for('index') }}" class="admin-nav-link" target="_blank">Сайт</a>
+                <a href="{{ url_for('admin_logout') }}" class="admin-nav-link logout">Выйти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-container">
+            <!-- Flash сообщения -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message flash-{{ category }}">
+                                {{ message }}
+                                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="admin-container">
+            <p>&copy; 2024 Админ панель Екатеринбурга</p>
+        </div>
+    </footer>
+
+    <script>
+        // Автоматическое скрытие flash сообщений
+        setTimeout(function() {
+            const messages = document.querySelectorAll('.flash-message');
+            messages.forEach(function(message) {
+                message.style.opacity = '0';
+                setTimeout(function() {
+                    message.remove();
+                }, 300);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

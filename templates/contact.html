@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Екатеринбург</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="nav-logo-img">
+                <h1 class="nav-logo">Екатеринбург</h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/attractions" class="nav-link">Достопримечательности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/history" class="nav-link">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="nav-link active">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/news" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/officials" class="nav-link">Официальные ссылки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Адрес</h3>
+                        <p>Плейс ККРП<br>сервер Екатеринбург рп</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>ДС пинг владельца @ytkin или @ytkiin</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
