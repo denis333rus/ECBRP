@@ -1,178 +1,27 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости - Екатеринбург</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип Екатеринбурга" class="nav-logo-img">
-                <h1 class="nav-logo">Екатеринбург</h1>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/attractions" class="nav-link">Достопримечательности</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/history" class="nav-link">История</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/contact" class="nav-link">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/news" class="nav-link active">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/officials" class="nav-link">Официальные ссылки</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/admin/login" class="nav-link admin-link">🔧 Админ</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Новости</h1>
-                <p>Самые последние новости о Екатеринбурге</p>
-            </div>
-        </section>
+{% extends "base_layout.html" %}
 
-        <section class="news-content">
-            <div class="container">
-                <!-- Фильтр по категориям -->
-                <div class="news-filters">
-                    <h3>Фильтр по категориям:</h3>
-                    <div class="filter-buttons">
-                        <a href="/news" class="filter-btn {% if current_category == 'Все' %}active{% endif %}">Все</a>
-                        {% for category in categories %}
-                        <a href="/news?category={{ category }}" class="filter-btn {% if current_category == category %}active{% endif %}">{{ category }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
+{% block title %}Новости - ГВСУ СК России{% endblock %}
 
-                <div class="news-grid">
-                    {% if news %}
-                        {% for item in news %}
-                        <article class="news-card {% if loop.first %}featured{% endif %}">
-                            <div class="news-image">
-                                {% if item.attachment_filename and item.attachment_filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')) %}
-                                <img src="{{ url_for('static', filename='uploads/' + item.attachment_filename) }}" 
-                                     alt="{{ item.title }}" 
-                                     class="news-image-file"
-                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="image-placeholder" style="display: none;">
-                                    {% if item.category == 'Культура' %}🎭
-                                    {% elif item.category == 'Развитие' %}🏗️
-                                    {% elif item.category == 'Образование' %}🎓
-                                    {% elif item.category == 'Туризм' %}🏔️
-                                    {% elif item.category == 'Экология' %}🌱
-                                    {% elif item.category == 'Спорт' %}⚽
-                                    {% elif item.category == 'Экономика' %}💰
-                                    {% else %}📰{% endif %}
-                                </div>
-                                {% else %}
-                                <div class="image-placeholder">
-                                    {% if item.category == 'Культура' %}🎭
-                                    {% elif item.category == 'Развитие' %}🏗️
-                                    {% elif item.category == 'Образование' %}🎓
-                                    {% elif item.category == 'Туризм' %}🏔️
-                                    {% elif item.category == 'Экология' %}🌱
-                                    {% elif item.category == 'Спорт' %}⚽
-                                    {% elif item.category == 'Экономика' %}💰
-                                    {% else %}📰{% endif %}
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="news-content-text">
-                                <div class="news-meta">
-                                    <span class="news-date">{{ item.created_at[:10] }}</span>
-                                    <span class="news-category">{{ item.category }}</span>
-                                </div>
-                                {% if loop.first %}
-                                <h2>{{ item.title }}</h2>
-                                {% else %}
-                                <h3>{{ item.title }}</h3>
-                                {% endif %}
-                                <p>{{ item.content[:150] }}{% if item.content|length > 150 %}...{% endif %}</p>
-                                <div class="news-author">Автор: {{ item.author }}</div>
-                                {% if item.attachment_filename %}
-                                <div class="news-attachment">
-                                    <a href="{{ url_for('download_file', filename=item.attachment_filename) }}" 
-                                       class="attachment-link" target="_blank">
-                                        📎 {{ item.attachment_original_name or item.attachment_filename }}
-                                    </a>
-                                </div>
-                                {% endif %}
-                                <a href="#" class="read-more">Читать далее</a>
-                            </div>
-                        </article>
-                        {% endfor %}
-                    {% else %}
-                        <div class="no-news">
-                            <h3>Новостей пока нет</h3>
-                            <p>Новости будут появляться здесь автоматически из Discord каналов</p>
-                            <div class="admin-link">
-                                <a href="/admin/login" class="btn-admin">🔧 Админ панель</a>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
+{% block content %}
+<div class="page-header">
+    <h1>Новости</h1>
+    <p>Последние события и новости Главного военного следственного управления</p>
+</div>
 
-                <div class="news-categories">
-                    <h2>Категории новостей</h2>
-                    <div class="categories-grid">
-                        <div class="category-card">
-                            <div class="category-icon">🏛️</div>
-                            <h3>Культура</h3>
-                            <p>Театры, музеи, фестивали</p>
-                        </div>
-                        <div class="category-card">
-                            <div class="category-icon">🏗️</div>
-                            <h3>Развитие</h3>
-                            <p>Строительство, инфраструктура</p>
-                        </div>
-                        <div class="category-card">
-                            <div class="category-icon">🚇</div>
-                            <h3>Транспорт</h3>
-                            <p>Метро, дороги, общественный транспорт</p>
-                        </div>
-                        <div class="category-card">
-                            <div class="category-icon">🎓</div>
-                            <h3>Образование</h3>
-                            <p>Университеты, школы, наука</p>
-                        </div>
-                        <div class="category-card">
-                            <div class="category-icon">🏔️</div>
-                            <h3>Туризм</h3>
-                            <p>Достопримечательности, маршруты</p>
-                        </div>
-                        <div class="category-card">
-                            <div class="category-icon">🌱</div>
-                            <h3>Экология</h3>
-                            <p>Окружающая среда, зеленые зоны</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <img src="{{ url_for('static', filename='logo-small.png') }}" alt="Логотип Екатеринбурга" class="footer-logo">
-                <p>&copy; 2024 Екатеринбург. Все права защищены.</p>
-            </div>
+{% if news %}
+    {% for item in news %}
+    <div class="content-section">
+        <div style="color: #e74c3c; font-weight: bold; font-size: 14px; margin-bottom: 10px;">
+            {{ item.date }}
         </div>
-    </footer>
-</body>
-</html>
+        <h2 style="margin-top: 0;">{{ item.title }}</h2>
+        <div style="color: #666; line-height: 1.8; white-space: pre-wrap;">{{ item.content }}</div>
+    </div>
+    {% endfor %}
+{% else %}
+<div class="content-section">
+    <p style="text-align: center; color: #666; padding: 40px 0;">Новостей пока нет</p>
+</div>
+{% endif %}
+{% endblock %}
+

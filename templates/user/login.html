@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход в админ панель - ГВСУ СК России</title>
+    <title>Вход в систему - ГВСУ СК России</title>
     <style>
         * {
             margin: 0;
@@ -102,12 +102,6 @@
             border-radius: 5px;
         }
         
-        .alert-success {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-        
         .alert-error {
             background: #f8d7da;
             border: 1px solid #f5c6cb;
@@ -117,8 +111,8 @@
 </head>
 <body>
     <div class="login-container">
-        <h1>Админ панель</h1>
-        <p class="subtitle">Введите учетные данные для входа</p>
+        <h1>Вход в систему</h1>
+        <p class="subtitle">Введите свои учетные данные</p>
         
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -130,9 +124,9 @@
             {% endif %}
         {% endwith %}
         
-        <form method="POST" action="{{ url_for('admin_login') }}">
+        <form method="POST" action="{{ url_for('user_login') }}">
             <div class="form-group">
-                <label for="username">Имя пользователя</label>
+                <label for="username">Логин</label>
                 <input type="text" id="username" name="username" required autofocus>
             </div>
             
@@ -143,6 +137,10 @@
             
             <button type="submit" class="btn-login">Войти</button>
         </form>
+        
+        <p style="margin-bottom: 10px; text-align: center; color: #666; font-size: 14px;">
+            Нет аккаунта? <a href="{{ url_for('register') }}" style="color: #e74c3c; text-decoration: none;">Зарегистрироваться</a>
+        </p>
         
         <a href="{{ url_for('index') }}" class="btn-back">← Вернуться на сайт</a>
     </div>
